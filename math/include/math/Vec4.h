@@ -149,21 +149,21 @@ namespace math
 
 
 	static inline float
-	lenght(const Vec4 &a)
+	vec4_lenght(const Vec4 &a)
 	{
 		return sqrtf(a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w);
 	}
 
 	Vec4
-	normalize(const Vec4 &a)
+	vec4_normalize(const Vec4 &a)
 	{
-		float len = lenght(a);
+		float len = vec4_lenght(a);
 		assert(len > 0 && "zero vector lenght");
 		return a / len;
 	}
 
 	float
-	dot(const Vec4 &a, const Vec4 &b)
+	vec4_dot(const Vec4 &a, const Vec4 &b)
 	{
 		return
 			a.x * b.x +
@@ -173,7 +173,7 @@ namespace math
 	}
 
 	Vec4
-	cross(const Vec4 &a, const Vec4 &b)
+	vec4_cross(const Vec4 &a, const Vec4 &b)
 	{
 		return Vec4 {
 			a.y * b.z - a.z * b.y,

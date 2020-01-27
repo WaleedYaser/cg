@@ -49,9 +49,9 @@ namespace math
 	{
 		Mat4 A;
 		A[0][0] = 1.0f, A[0][1] = 0.0f, A[0][2] = 0.0f, A[0][3] = 0.0f;
-		A[0][0] = 0.0f, A[0][1] = 1.0f, A[0][2] = 0.0f, A[0][3] = 0.0f;
-		A[0][0] = 0.0f, A[0][1] = 0.0f, A[0][2] = 1.0f, A[0][3] = 0.0f;
-		A[0][0] = 0.0f, A[0][1] = 0.0f, A[0][2] = 0.0f, A[0][3] = 1.0f;
+		A[1][0] = 0.0f, A[1][1] = 1.0f, A[1][2] = 0.0f, A[1][3] = 0.0f;
+		A[2][0] = 0.0f, A[2][1] = 0.0f, A[2][2] = 1.0f, A[2][3] = 0.0f;
+		A[3][0] = 0.0f, A[3][1] = 0.0f, A[3][2] = 0.0f, A[3][3] = 1.0f;
 		return A;
 	}
 
@@ -63,5 +63,12 @@ namespace math
 			for (uint8_t j = 0; j < 4; ++j)
 				T[i][j] = A[j][i];
 		return T;
+	}
+
+	inline static Mat4
+	mat4_inverse(const Mat4 &A)
+	{
+		assert(false && "Not implemented");
+		return Mat4{}; 
 	}
 }

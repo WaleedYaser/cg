@@ -114,21 +114,21 @@ namespace math
 
 
 	static inline float
-	lenght(const Vec3 &a)
+	vec3_lenght(const Vec3 &a)
 	{
 		return sqrtf(a.x * a.x + a.y * a.y + a.z * a.z);
 	}
 
 	Vec3
-	normalize(const Vec3 &a)
+	vec3_normalize(const Vec3 &a)
 	{
-		float len = lenght(a);
+		float len = vec3_lenght(a);
 		assert(len > 0 && "zero vector lenght");
 		return a / len;
 	}
 
 	float
-	dot(const Vec3 &a, const Vec3 &b)
+	vec3_dot(const Vec3 &a, const Vec3 &b)
 	{
 		return
 			a.x * b.x +
@@ -137,7 +137,7 @@ namespace math
 	}
 
 	Vec3
-	cross(const Vec3 &a, const Vec3 &b)
+	vec3_cross(const Vec3 &a, const Vec3 &b)
 	{
 		return Vec3 {
 			a.y * b.z - a.z * b.y,
