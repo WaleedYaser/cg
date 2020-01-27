@@ -5,6 +5,7 @@ set(HEADER_FILES
 	include/math/Vec3.h
 	include/math/Vec4.h
 	include/math/Mat4.h
+	include/math/Polar.h
 )
 
 # list the source files
