@@ -6,6 +6,7 @@ set(HEADER_FILES
 	include/math/Vec4.h
 	include/math/Mat4.h
 	include/math/Polar.h
+	include/math/Sphere.h
 )
 
 # list the source files

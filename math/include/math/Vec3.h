@@ -59,6 +59,25 @@ namespace math
 	}
 
 	static inline Vec3
+	operator *(const Vec3 &a, const Vec3 &b)
+	{
+		return Vec3{
+			a.x * b.x,
+			a.y * b.y,
+			a.z * b.z
+		};
+	}
+
+	static inline Vec3 &
+	operator*=(Vec3 &a, const Vec3 &b)
+	{
+		a.x *= b.x;
+		a.y *= b.y;
+		a.z *= b.z;
+		return a;
+	}
+
+	static inline Vec3
 	operator*(const Vec3 &a, float f)
 	{
 		return Vec3{
