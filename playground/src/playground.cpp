@@ -1,28 +1,43 @@
-#include <math/Vec3.h>
-#include <math/Mat4.h>
-
 #include <stdio.h>
 
-using namespace math;
+using Point = float[3];
 
 int
 main(int argc, char *argv[])
 {
-	Vec3 a = Vec3{0.0f, 1.0f, 2.0f};
 
-	Mat4 A = mat4_identity();
-	Mat4 B = mat4_identity();
-	Mat4 C = A * B;
+	Point corners[8] = {
+		{1, -1, -5},
+		{1, -1, -3},
 
-	Mat4 D = mat4_new(
-		0.707107, 0, -0.707107, 0,
-		-0.331295, 0.883452, -0.331295, 0,
-		0.624695, 0.468521, 0.624695, 0,
-		4.000574, 3.00043, 4.000574, 1); 
+		{1, 1, -5},
+		{1, 1, -3},
 
-	Mat4 D_inverted = mat4_inverse(D);
+		{-1, -1, -5},
+		{-1, -1, -3},
 
-	Mat4 I = D * D_inverted;
+		{-1, 1, -5,},
+		{-1, 1, -3}
+	};
+
+	constexpr unsigned int image_width = 512, image_height = 512;
+
+	for (int i = 0; i < 8; ++i)
+	{
+		// fivide x and y coordinates by the z coordinate to project the point on the canvas
+		float x_proj = corners[i][0] / -corners[i][2];
+		float y_proj = corners[i][1] / -corners[i][2];
+
+		// map coordinates from [-1, 1] to [0, 1] (NDC)
+		float x_proj_remap = (1 + x_proj) / 2.0f;
+		float y_proj_remap = (1 + y_proj) / 2.0f;
+
+		// image pixels (raster space)
+		float x_proj_pix = x_proj_remap * image_width;
+		float y_proj_pix = y_proj_remap * image_height;
+
+		printf("projected corner: %d x: %5.2f y: %5.2f\n", i, x_proj_pix, y_proj_pix);
+	}
 
 	return 0;
 }

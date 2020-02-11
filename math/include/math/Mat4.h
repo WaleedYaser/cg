@@ -1,5 +1,7 @@
 #pragma once
 
+#include <assert.h>
+#include <math.h>
 #include <stdint.h>
 
 namespace math
