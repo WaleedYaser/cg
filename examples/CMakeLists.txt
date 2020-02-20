@@ -13,3 +13,10 @@ target_link_libraries(prespective
 	PUBLIC
 		Waleed::math
 )
+
+add_executable(pinhole src/Pinhole.cpp)
+
+target_link_libraries(pinhole
+	PUBLIC
+		Waleed::math
+)
