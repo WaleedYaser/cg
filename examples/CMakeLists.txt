@@ -20,3 +20,10 @@ target_link_libraries(pinhole
 	PUBLIC
 		Waleed::math
 )
+
+add_executable(raster src/Raster.cpp)
+
+target_link_libraries(raster
+	PUBLIC
+		Waleed::math
+)

@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 # list the header files
 set(HEADER_FILES
+	include/math/Vec2.h
 	include/math/Vec3.h
 	include/math/Vec4.h
 	include/math/Mat4.h
